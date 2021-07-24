@@ -20,7 +20,14 @@ namespace AddManyPeople.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            var paySalaries = new List<PaySalary>
+            {
+                new PaySalary { PersonName = "A" },
+                new PaySalary { PersonName = "B" },
+                new PaySalary { PersonName = "C" },
+            };
+
+            return View(paySalaries);
         }
 
         public IActionResult Privacy()
@@ -35,16 +42,8 @@ namespace AddManyPeople.Controllers
         }
 
         [HttpPost]
-        public IActionResult PaySalery(PaySalary salery)
+        public IActionResult PaySalery(IEnumerable<PaySalary> saleries)
         {
-            PaySalary paySalary = new PaySalary()
-            {
-                PersonID = salery.PersonID,
-                ProjectID = salery.ProjectID,
-                HokmID = salery.HokmID,
-                // ...
-            };
-
             return RedirectToAction("AllPerson");
         }
 

@@ -1,16 +1,25 @@
-﻿@{
+﻿@model IEnumerable<AddManyPeople.Models.PaySalary>
+@{
     ViewData["Title"] = "Home Page";
 }
 
-<tbody>
-    <form action="/Home/PaySalery" method="post">
-        <tr>
-            <td class="tablehead">Hi</td>
-            <td><input class="" type="text" style="width: 25px" name="PersonID" /></td>
-            <td><input class="" type="text" style="width: 30px" name="ProjectID" /></td>
-            <td><input class="" type="text" style="width: 30px" name="HokmID" /></td>
-            <!-- ... -->
-        </tr>
-        <button class="btn btn-success mb-4" type="submit">ثبت حقوق</button>
-    </form>
-</tbody>
+<div class="text-center">
+    <table>
+        <tbody>
+            <form action="/Home/PaySalery" method="post">
+                @for (var i = 0; i < 3; i++)
+                {
+                    <tr style="display:block;">
+                        <td class="tablehead"></td>
+                        <td><input class="" type="text" style="width: 25px" name="[@i].PersonID" /></td>
+                        <td><input class="" type="text" style="width: 25px" name="[@i].ProjectID" /></td>
+                        <td><input class="" type="text" style="width: 25px" name="[@i].HokmID" /></td>
+                        <!-- ... -->
+                </tr>
+                }
+                <button class="btn btn-success mb-4" type="submit">ثبت حقوق</button>
+            </form>
+        </tbody>
+    </table>
+
+</div>
