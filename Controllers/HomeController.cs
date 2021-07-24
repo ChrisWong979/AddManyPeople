@@ -42,7 +42,7 @@ namespace AddManyPeople.Controllers
         }
 
         [HttpPost]
-        public IActionResult PaySalery(IEnumerable<PaySalary> saleries)
+        public IActionResult PaySalary(IEnumerable<PaySalary> salaries)
         {
             return RedirectToAction("AllPerson");
         }
