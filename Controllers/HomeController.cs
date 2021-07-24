@@ -33,5 +33,24 @@ namespace AddManyPeople.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
+
+        [HttpPost]
+        public IActionResult PaySalery(PaySalary salery)
+        {
+            PaySalary paySalary = new PaySalary()
+            {
+                PersonID = salery.PersonID,
+                ProjectID = salery.ProjectID,
+                HokmID = salery.HokmID,
+                // ...
+            };
+
+            return RedirectToAction("AllPerson");
+        }
+
+        public IActionResult AllPerson()
+        {
+            return View();
+        }
     }
 }
